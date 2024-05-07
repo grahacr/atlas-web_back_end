@@ -1,1 +1,0 @@
-This project continues with Javascript ES6 learning regarding Classes.
