@@ -28,7 +28,7 @@ export default class Pricing {
   }
 
   set currency(currency2) {
-    if (!(currency instanceof Currency)) {
+    if (!(currency2 instanceof Currency)) {
       throw new Error('Currency must be an instance of Currency')
     }
     this._currency = currency2;
@@ -38,7 +38,7 @@ export default class Pricing {
     return `${this._amount} ${this._currency._name} (${this._currency._code})`
   }
 
-  static convertPrice(amount, conversationRAte) {
+  static convertPrice(amount, conversationRate) {
     return amount * conversationRate;
   }
 }
