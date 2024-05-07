@@ -1,0 +1,1 @@
+This project is for learning more about Javascript ES6, specifically classes
