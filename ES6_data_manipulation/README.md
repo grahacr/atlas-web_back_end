@@ -1,0 +1,1 @@
+Continuation of learning Javascript ES6 with data manipulation, including arrays.
