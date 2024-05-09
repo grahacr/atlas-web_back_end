@@ -1,0 +1,1 @@
+Learning promises in Javascript ES6.
