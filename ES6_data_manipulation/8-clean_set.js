@@ -6,8 +6,8 @@ export default function cleanSet(set, startString){
   for (const value of set) {
     if (value.startsWith(startString)) {
       let restOfString = value.substring(startString.length);
-      matches.push(restOfString);
+      matches += (matches.length === 0 ? '' : '-') + restOfString;
     }
   }
-  return matches.join('-');
+  return matches;
 }
