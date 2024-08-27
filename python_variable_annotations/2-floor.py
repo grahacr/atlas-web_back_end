@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-import math
 '''
 using type annotation, take a float as argument and return floor of float
 '''
+import math
 
 
 def floor(n: float) -> int:
