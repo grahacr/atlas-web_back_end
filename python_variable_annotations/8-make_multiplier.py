@@ -11,10 +11,11 @@ def make_multiplier(multiplier: float) -> Callable[[float], float]:
     '''
     make_multiplier takes one argument:
     - multiplier (float type)
-    Returns: a function multiplier_function.
-    inner function takes one argument(a float), and returns the multiplied value
-    using the multiplier value from the scope of the original function
-    this returns a function to be stored in an object and utilized as multiplier
+    Returns: a function multiplier_function
+    to be stored in an object and utilized as multiplier
+        - inner function takes one argument(a float),
+        - returns the multiplied value using the multiplier value
+        from the scope of the original function
     '''
     def multiplier_function(value: float) -> float:
         return value * multiplier
