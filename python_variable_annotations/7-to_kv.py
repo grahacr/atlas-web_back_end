@@ -7,7 +7,7 @@ with a string and the value of either the int or float squared
 from typing import Tuple, Union
 
 
-def to_kv(k: str, v: Union[int, float]) -> Tuple[str,float]:
+def to_kv(k: str, v: Union[int, float]) -> Tuple[str, float]:
     '''
     function to_kv takes 2 arguments:
     k = string
