@@ -9,7 +9,10 @@ from typing import List, Union
 
 def sum_mixed_list(mxd_list: List[Union[int, float]]) -> float:
     '''
-    function sum_mixed_list takes in one argument: mxd_list (list of both float and int types)
-    return: return sum of both ints and floats within the list, utilizing Union from typing module
+    function sum_mixed_list takes in one argument:
+    - mxd_list (list of both float and int types)
+    return:
+    return sum of both ints and floats within the list
+    utilizing Union from typing module
     '''
     return float(sum(mxd_list))
