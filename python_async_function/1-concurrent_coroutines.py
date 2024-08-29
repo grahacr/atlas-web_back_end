@@ -2,7 +2,7 @@
 '''
 module utilizes typing, random, and asyncio packages
 imports a function to generate a random delay
-function wait_n takes 2 integers as an argument to return a list of 
+function wait_n takes 2 integers as an argument to return a list of
 delays, generated due to multiple coroutines running
 at the same time with async
 '''
