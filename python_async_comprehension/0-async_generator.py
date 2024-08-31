@@ -6,10 +6,10 @@ of generating a random number after asynchronous delays
 '''
 import asyncio
 import random
-from typing import AsyncGenerator
+from typing import Generator
 
 
-async def async_generator() -> AsyncGenerator[float, None]:
+async def async_generator() -> Generator[float, None, None]:
     '''
     async_generator takes no arguments.
     it will asychronously wait 1 second, then
