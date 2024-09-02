@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 '''
 use imported async_comprehension function
-and measure the time it takes to run it 4 times
+and write new function that will measure
+the time it takes to run imported function 4 times
 '''
 import asyncio
 import time
@@ -9,6 +10,9 @@ async_comprehension = __import__('1-async_comprehension').async_comprehension
 
 async def measure_runtime() -> float:
     '''
+    measure_runtime: no arguments,
+    returns: float representing amount of time it took
+    to execute the imported function 4 times, utilizing gather
     '''
     start_time = time.time()
     await asyncio.gather(
