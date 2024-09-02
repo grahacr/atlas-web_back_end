@@ -15,12 +15,8 @@ async def measure_runtime() -> float:
     to execute the imported function 4 times, utilizing gather
     '''
     start_time = time.time()
-    await asyncio.gather(
-        async_comprehension(),
-        async_comprehension(),
-        async_comprehension(),
-        async_comprehension()
-    )
+    coroutines = [async_comprehension() for _ in range(4)]
+    await asyncio.gather(*coroutines)
     end_time = time.time()
     elapsed_time = end_time - start_time
     return float(elapsed_time)
