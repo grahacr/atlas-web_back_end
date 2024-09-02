@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 '''
-use imported async_generator function
-and generate 10 random numbers using async_comprehension
+use imported async_comprehension function
+and measure the time it takes to run it 4 times
 '''
 import asyncio
 import time
@@ -11,7 +11,7 @@ async def measure_runtime() -> float:
     '''
     '''
     start_time = time.time()
-    results = await asyncio.gather(
+    await asyncio.gather(
         async_comprehension(),
         async_comprehension(),
         async_comprehension(),
