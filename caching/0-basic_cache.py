@@ -7,8 +7,10 @@ from base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
-    '''BasicCache inherits from BaseCaching which is a straightforward parent class.
-    This class implements the put and get functions for cache system
+    '''BasicCache inherits from BaseCaching,
+    a straightforward parent class.
+    This child class implements the put and get functions
+    for cache system
     '''
     def __init__(self):
         '''
