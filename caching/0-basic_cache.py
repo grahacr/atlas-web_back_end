@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-from base_caching import BaseCaching
 '''
 module imports BaseCaching and uses it as parent class for new BasicCache class
 which will implement a cache system with put and get methods.
 '''
+from base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
