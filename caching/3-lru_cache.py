@@ -33,11 +33,14 @@ class LRUCache(BaseCaching):
         inserted into ordered dictionary is popped off
         '''
         if key is not None and item is not None:
+            if key in self.cache_data:
+                self.cache_data.move_to_end(key)
+            else:
+                if len(self.cache_data) == self.MAX_ITEMS:
+                    lru_key, _ = self.cache_data.popitem(last=False)
+                    print("DISCARD: {}".format(lru_key))
+            self.cache_data[key] = item
             self.cache_data.move_to_end(key)
-        elif len(self.cache_data) >= self.MAX_ITEMS:
-            lru_key, _ = self.cache_data.popitem(last=False)
-            print("DISCARD: {}".format(lru_key))
-        self.cache_data[key] = item
 
     def get(self, key):
         '''
@@ -47,4 +50,7 @@ class LRUCache(BaseCaching):
         Returns: the value linked to the given key,
         as long as key exists and is not None
         '''
-        return self.cache_data.get(key, None)
+        if key is not None and key in self.cache_data:
+            self.cache_data.move_to_end(key)
+            return self.cache_data[key]
+        return None
