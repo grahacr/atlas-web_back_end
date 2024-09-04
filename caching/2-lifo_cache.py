@@ -40,7 +40,6 @@ class LIFOCache(BaseCaching):
             cache_data[key] = item
             self.order.append(key)
 
-        
     def get(self, key):
         '''
         get method takes 2 arguments:
