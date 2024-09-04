@@ -1,0 +1,56 @@
+#!/usr/bin/python3
+'''
+Module adds to cache system from parent class BaseCaching,
+utilizes OrderedDict method from collections module,
+and evicts cache items based on Most Recently Used (MRU)
+'''
+from base_caching import BaseCaching
+from collections import OrderedDict
+
+
+class MRUCache(BaseCaching):
+    '''
+    MRUCache class implements a class to add to cache system
+    which evicts excess cache items by MRU Method
+    '''
+    def __init__(self):
+        '''
+        constructor method calls parent constructor
+        creates instance.
+        Creates ordered dictionary out of parent class cache_data
+        '''
+        super().__init__()
+        self.cache_data = OrderedDict()
+
+    def put(self, key, item):
+        '''
+        put method takes 3 arguments:
+        - self
+        - key
+        - item
+        Adds accessed cache items to end of dictionary.
+        if Max Items of cache items is reached - the most recent key, value pair
+        inserted into ordered dictionary is popped off
+        '''
+        if key is not None and item is not None:
+            if key in self.cache_data:
+                self.cache_data.move_to_end(key)
+            else:
+                if len(self.cache_data) == self.MAX_ITEMS:
+                    mru_key, _ = self.cache_data.popitem(last=True)
+                    print("DISCARD: {}".format(mru_key))
+            self.cache_data[key] = item
+            self.cache_data.move_to_end(key)
+
+    def get(self, key):
+        '''
+        get method takes 2 arguments:
+        - self
+        - key
+        Returns: the value linked to the given key,
+        as long as key exists and is not None
+        '''
+        if key is not None and key in self.cache_data:
+            self.cache_data.move_to_end(key)
+            return self.cache_data[key]
+        return None
