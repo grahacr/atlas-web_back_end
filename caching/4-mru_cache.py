@@ -29,8 +29,9 @@ class MRUCache(BaseCaching):
         - key
         - item
         Adds accessed cache items to end of dictionary.
-        if Max Items of cache items is reached - the most recent key, value pair
-        inserted into ordered dictionary is popped off
+        if Max Items of cache items is reached,
+        the most recent key, value pair inserted into
+        ordered dictionary is popped off
         '''
         if key is not None and item is not None:
             if key in self.cache_data:
