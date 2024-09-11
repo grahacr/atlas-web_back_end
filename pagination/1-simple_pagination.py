@@ -21,6 +21,7 @@ def index_range(page: int, page_size: int) -> Tuple[int, int]:
     range = (start_index, end_index)
     return range
 
+
 class Server:
     """Server class to paginate a database of popular baby names.
     """
@@ -53,4 +54,3 @@ class Server:
         start, end = index_range(page, page_size)
         dataset = self.dataset()
         return dataset[start:end] if start < len(dataset) else []
-    
