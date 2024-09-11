@@ -49,11 +49,18 @@ class Server:
         - Dictionary
         '''
         index_dataset = self.indexed_dataset()
-        assert isinstance(index, int) and index >= 0 and index < len(index_dataset)
-        page = [index_dataset[i] for i in range(index, index + page_size) if i in index_dataset]
+        assert isinstance((index, int) and index >= 0
+                          and index < len(index_dataset))
+        page = [
+            index_dataset[i]
+            for i in range(index, index + page_size)
+            if i in index_dataset
+            ]
         return {
             'index': index,
-            'next_index': index + page_size if index + page_size < len(index_dataset) else None,
+            'next_index': (index + page_size
+                           if index + page_size < len(index_dataset)
+                           else None),
             'page_size': len(page),
             'data': page
         }
