@@ -50,7 +50,7 @@ class Server:
         '''
         index_dataset = self.indexed_dataset()
         assert (isinstance(index, int) and index >= 0
-                          and index < len(index_dataset))
+                and index < len(index_dataset))
         page = [
             index_dataset[i]
             for i in range(index, index + page_size)
