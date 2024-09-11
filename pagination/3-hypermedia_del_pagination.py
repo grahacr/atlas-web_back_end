@@ -49,7 +49,7 @@ class Server:
         - Dictionary
         '''
         index_dataset = self.indexed_dataset()
-        assert isinstance((index, int) and index >= 0
+        assert (isinstance(index, int) and index >= 0
                           and index < len(index_dataset))
         page = [
             index_dataset[i]
