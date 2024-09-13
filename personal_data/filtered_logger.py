@@ -38,6 +38,7 @@ class RedactingFormatter(logging.Formatter):
         - fields (list of strings)
         '''
         super(RedactingFormatter, self).__init__(self.FORMAT)
+        self.fields = fields
 
     def format(self, record: logging.LogRecord) -> str:
         '''
