@@ -8,7 +8,7 @@ import re
 from typing import List
 
 '''
-tuple containing PII from user_data.csv which need to 
+tuple containing PII from user_data.csv which need to
 be obfuscated from logger messaging
 '''
 PII_FIELDS = ("name", "email", "phone", "ssn", "password")
