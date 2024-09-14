@@ -7,6 +7,12 @@ import logging
 import re
 from typing import List
 
+'''
+tuple containing PII from user_data.csv which need to 
+be obfuscated from logger messaging
+'''
+PII_FIELDS = ("name", "email", "phone", "ssn", "password")
+
 
 def filter_datum(fields: List[str], redaction: str,
                  message: str, separator: str) -> str:
@@ -55,3 +61,18 @@ class RedactingFormatter(logging.Formatter):
         filtered_message = filter_datum(self.fields, self.REDACTION,
                                         og_message, self.SEPARATOR)
         return filtered_message
+    
+    def get_logger() -> logging.Logger:
+        '''
+        get_logger function takes no arguments.
+        Returns: logger object
+        function creates logging object with formatted message
+        stream and fields from global variable PII_FIELDS
+        '''
+        logger = logging.getLogger("user_data")
+        logger.setLevel(logging.INFO)
+        stream_handler = logging.StreamHandler()
+        formatter = RedactingFormatter(fields=PII_FIELDS)
+        stream_handler.setFormatter(formatter)
+        logger.addHandler(stream_handler)
+        return logger
