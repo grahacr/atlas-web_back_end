@@ -63,7 +63,7 @@ class RedactingFormatter(logging.Formatter):
         return filtered_message
 
 
-def get_logger():
+def get_logger() -> logging.Logger:
     '''
     get_logger function takes no arguments.
     Returns: logger object
