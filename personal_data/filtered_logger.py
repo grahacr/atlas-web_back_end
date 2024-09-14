@@ -61,18 +61,19 @@ class RedactingFormatter(logging.Formatter):
         filtered_message = filter_datum(self.fields, self.REDACTION,
                                         og_message, self.SEPARATOR)
         return filtered_message
-    
-    def get_logger() -> logging.Logger:
-        '''
-        get_logger function takes no arguments.
-        Returns: logger object
-        function creates logging object with formatted message
-        stream and fields from global variable PII_FIELDS
-        '''
-        logger = logging.getLogger("user_data")
-        logger.setLevel(logging.INFO)
-        stream_handler = logging.StreamHandler()
-        formatter = RedactingFormatter(fields=PII_FIELDS)
-        stream_handler.setFormatter(formatter)
-        logger.addHandler(stream_handler)
-        return logger
+
+
+def get_logger():
+    '''
+    get_logger function takes no arguments.
+    Returns: logger object
+    function creates logging object with formatted message
+    stream and fields from global variable PII_FIELDS
+    '''
+    logger = logging.getLogger("user_data")
+    logger.setLevel(logging.INFO)
+    stream_handler = logging.StreamHandler()
+    formatter = RedactingFormatter(fields=PII_FIELDS)
+    stream_handler.setFormatter(formatter)
+    logger.addHandler(stream_handler)
+    return logger
