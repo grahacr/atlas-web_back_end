@@ -34,7 +34,11 @@ def filter_datum(fields: List[str], redaction: str,
 
 def get_db() -> mysql.connector.connection.MySQLConnection:
     '''
-    
+    get_db function - takes no arguments
+    returns:
+    mysql.connector connection
+    set up connection to secure database
+    using environmental variables for sensitive info credentials
     '''
     db_username = os.getenv('PERSONAL_DATA_DB_USERNAME', 'root')
     db_password = os.getenv('PERSONAL_DATA_DB_PASSWORD', '')
