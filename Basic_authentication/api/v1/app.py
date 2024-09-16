@@ -21,6 +21,10 @@ if auth:
 
 @app.before_request
 def filter_request():
+    '''
+    filter request function takes no arguments.
+    determines need for authorization of each request
+    '''
     if auth is None:
         return
     specific_paths = [
