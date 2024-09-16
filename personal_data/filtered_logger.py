@@ -3,6 +3,7 @@
 module includes function for obfuscating log message
 utilizing regex
 '''
+import bcrypt
 import logging
 import os
 import mysql.connector
@@ -52,6 +53,13 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
         database=db_name
     )
     return connection
+
+def hash_password(password: str) -> bytes:
+    '''
+    '''
+    password_bytes = password.encode()
+    hashed = bcrypt.hashpw(password_bytes, bcrypt.gensalt())
+    return hashed
 
 
 class RedactingFormatter(logging.Formatter):
