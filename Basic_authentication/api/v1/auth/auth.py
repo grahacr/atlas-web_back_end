@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 '''
-module for basic Authentication
+module for Authentication
 '''
 
 from flask import request
@@ -10,7 +10,7 @@ from typing import List, TypeVar
 class Auth():
     '''
     Authentication class contains functions for
-    basic Authentication
+    Authentication
     '''
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         '''
