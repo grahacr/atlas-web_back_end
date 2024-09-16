@@ -11,3 +11,4 @@ class BasicAuth(Auth):
     '''
     BasicAuth class inherits from Auth
     '''
+    pass
