@@ -23,7 +23,7 @@ def is_valid(hashed_password: bytes, password: str) -> bool:
     - hashed_password (bytes)
     - password (string)
     Returns: boolean on password validity
-    function encodes password to bytes and uses checkpw to 
+    function encodes password to bytes and uses checkpw to
     validate it against hashed_password
     '''
     password_bytes = password.encode()
