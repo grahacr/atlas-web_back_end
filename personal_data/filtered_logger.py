@@ -113,13 +113,14 @@ def main():
     if db:
         cursor = db.cursor(dictionary=True)
         cursor.execute(
-            "SELECT name, email, phone, ssn, password FROM users")
+            "SELECT name, email, phone, ssn, password, ip, last_login, user_agent FROM users")
 
         logger = get_logger()
         for row in cursor:
             message = (
-                f"name={row[0]}; email={row[1]}; phone={row[2]};"
-                f"ssn={row[3]}; password={row[4]};"
+                f"name={row['name']}; email={row['email']}; phone={row['phone']}; "
+                f"ssn={row['ssn']}; password={row['password']}; ip={row['ip']}; "
+                f"last_login={row['last_login']}; user_agent={row['user_agent']}"
             )
             logger.info(message)
         
