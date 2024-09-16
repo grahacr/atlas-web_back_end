@@ -102,3 +102,31 @@ def get_logger() -> logging.Logger:
     stream_handler.setFormatter(formatter)
     logger.addHandler(stream_handler)
     return logger
+
+
+def main():
+    '''
+    main function which will execute all other functions
+    to set up database connection and execute logging
+    '''
+    db = get_db()
+    if db:
+        cursor = db.cursor(dictionary=True)
+        cursor.execute(
+            "SELECT name, email, phone, ssn, password FROM users")
+
+        logger = get_logger()
+        for row in cursor:
+            message = (
+                f"name={row[0]}; email={row[1]}; phone={row[2]};"
+                f"ssn={row[3]}; password={row[4]};"
+            )
+            logger.info(message)
+        
+        cursor.close()
+        db.close()
+    else:
+        print("Database connection failed.")
+        
+if __name__ == '__main__':
+    main()
