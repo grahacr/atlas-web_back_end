@@ -8,3 +8,6 @@ from typing import TypeVar
 
 
 class BasicAuth(Auth):
+    '''
+    BasicAuth class inherits from Auth
+    '''
