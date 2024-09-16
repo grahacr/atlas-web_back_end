@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 '''
+module for basic Authentication
 '''
 
 from flask import request
