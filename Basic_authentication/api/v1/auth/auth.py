@@ -6,6 +6,7 @@ module for basic Authentication
 from flask import request
 from typing import List, TypeVar
 
+
 class Auth():
     '''
     Authentication class contains functions for
@@ -20,7 +21,6 @@ class Auth():
         Return: boolean
         '''
         return False
-    
 
     def authorization_header(self, request=None) -> str:
         '''
@@ -30,8 +30,7 @@ class Auth():
         Return: string
         '''
         return None
-    
-    
+
     def current_user(self, request=None) -> TypeVar('User'):
         '''
         current user function takes 2 args:
