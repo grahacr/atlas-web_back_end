@@ -18,9 +18,19 @@ class Auth():
         - self
         - path (string)
         - excluded_paths (list of strings)
-        Return: boolean
+        Return: boolean depending on if authentication is necessary
         '''
-        return False
+        if path is None:
+            return True
+        if excluded_paths is None or not excluded_paths:
+            return True
+        equalized_path = path.rstrip('/') + '/'
+        equalized_excluded_path = [route.rstrip('/') + '/' for route in excluded_paths]
+        for route in equalized_excluded_path:
+            if equalized_path.startswith(route):
+                return False
+        
+        return True
 
     def authorization_header(self, request=None) -> str:
         '''
