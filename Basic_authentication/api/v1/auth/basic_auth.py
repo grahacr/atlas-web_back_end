@@ -11,7 +11,8 @@ class BasicAuth(Auth):
     '''
     BasicAuth class inherits from Auth
     '''
-    def extract_base64_authorization_header(self, authorization_header: str) -> str:
+    def extract_base64_authorization_header(
+            self, authorization_header: str) -> str:
         '''
         function extracts basic authorization header
         takes 2 args:
