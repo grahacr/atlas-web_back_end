@@ -4,7 +4,7 @@ module for Basic Authentication
 '''
 from api.v1.auth.auth import Auth
 from flask import request
-from typing import TypeVar
+from typing import TypeVar, Tuple
 import base64
 from models.user import User
 
@@ -50,7 +50,13 @@ class BasicAuth(Auth):
             return None
 
     def extract_user_credentials(self,
-                                 decoded_base64_authorization_header: str) -> (str, str):
+                                 decoded_base64_authorization_header: str) -> Tuple[str, str]:
+        '''
+        extract_user_credentials takes 2 args:
+        - self
+        - decoded_base64_authorization_header (String)
+        Return: Tuple [string, string] representing user credentials
+        '''
         if (decoded_base64_authorization_header is None or
             type(decoded_base64_authorization_header) is not str
             or ':' not in decoded_base64_authorization_header):
