@@ -19,6 +19,7 @@ if auth:
     from api.v1.auth.auth import Auth
     auth = Auth()
 
+
 @app.before_request
 def filter_request():
     '''
@@ -38,6 +39,7 @@ def filter_request():
         abort(401)
     if auth.current_user(request) is None:
         abort(403)
+
 
 @app.errorhandler(404)
 def not_found(error) -> str:
