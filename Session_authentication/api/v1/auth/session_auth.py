@@ -19,6 +19,12 @@ class SessionAuth(Auth):
     user_id_by_session_id = {}
 
     def create_session(self, user_id: str = None) -> str:
+        '''
+        create_session instance method takes 2 args:
+        - self
+        - user_id (string, default = none)
+        Return: string representing session id
+        '''
         if user_id is None or type(user_id) is not str:
             return None
         session_id = str(uuid.uuid4())
