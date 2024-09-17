@@ -92,6 +92,13 @@ class BasicAuth(Auth):
             return None
 
     def current_user(self, request=None) -> TypeVar('User'):
+        '''
+        current user method takes 2 args:
+        - self
+        - request (Default = none)
+        Return:
+        User instance object
+        '''
         if request is None:
             return None
         authorized_header = self.authorization_header(request)
@@ -109,5 +116,5 @@ class BasicAuth(Auth):
         user_cred = self.extract_user_credentials(decoded_header)
         if user_cred is None:
             return None
-        
+
         return self.user_object_from_credentials(user_cred)
