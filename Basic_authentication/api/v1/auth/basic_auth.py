@@ -62,10 +62,10 @@ class BasicAuth(Auth):
         if (decoded_base64_authorization_header is None or
             type(decoded_base64_authorization_header) is not str or
             ':' not in decoded_base64_authorization_header):
-                return (None, None)
+            return (None, None)
         separated = decoded_base64_authorization_header.split(':')
         return (separated[0], separated[1])
-    
+
     def user_object_from_credentials(self, user_email: str,
                                      user_pwd: str) -> TypeVar('User'):
         '''
@@ -79,7 +79,7 @@ class BasicAuth(Auth):
             return None
         if user_pwd is None and not isinstance(user_pwd, str):
             return None
-        
+
         try:
             users = User.search({'email': user_email})
             if not users:
