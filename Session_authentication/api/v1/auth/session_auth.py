@@ -11,4 +11,8 @@ from models.base import Base
 
 
 class SessionAuth(Auth):
+    '''
+    class SessionAuth inherits from Auth class
+    session authentication mechanism
+    '''
     pass
