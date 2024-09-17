@@ -53,7 +53,7 @@ class Auth():
         Return: Type ('user')
         '''
         return None
-    
+
     def session_cookie(self, request=None) -> str:
         '''
         session_cookie instance method takes 2 args:
