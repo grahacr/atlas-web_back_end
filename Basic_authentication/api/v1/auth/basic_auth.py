@@ -60,8 +60,8 @@ class BasicAuth(Auth):
         Return: Tuple [string, string] representing user credentials
         '''
         if (decoded_base64_authorization_header is None or
-            type(decoded_base64_authorization_header) is not str or
-            ':' not in decoded_base64_authorization_header):
+            type(decoded_base64_authorization_header) is not str
+            or ':' not in decoded_base64_authorization_header):
             return (None, None)
         separated = decoded_base64_authorization_header.split(':')
         return (separated[0], separated[1])
@@ -105,7 +105,8 @@ class BasicAuth(Auth):
         if authorized_header is None:
             return None
 
-        base64_header = self.extract_base64_authorization_header(authorized_header)
+        base64_header = (self.extract_base64_authorization_header
+                         (authorized_header))
         if base64_header is None:
             return None
 
