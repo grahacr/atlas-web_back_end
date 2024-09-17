@@ -114,7 +114,7 @@ class BasicAuth(Auth):
             return None
 
         user_cred = self.extract_user_credentials(decoded_header)
-        if user_cred is None:
+        if user_cred[0] is None or user_cred[1] is None:
             return None
 
         return self.user_object_from_credentials(user_cred)
