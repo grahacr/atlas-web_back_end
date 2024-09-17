@@ -117,4 +117,4 @@ class BasicAuth(Auth):
         if user_cred[0] is None or user_cred[1] is None:
             return None
 
-        return self.user_object_from_credentials(user_cred)
+        return self.user_object_from_credentials(user_cred[0], user_cred[1])
