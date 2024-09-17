@@ -30,3 +30,16 @@ class SessionAuth(Auth):
         session_id = str(uuid.uuid4())
         self.user_id_by_session_id.update({session_id: user_id})
         return session_id
+
+    def user_id_for_session_id(self, session_id: str = None) -> str:
+        '''
+        instance method takes 2 args:
+        - self
+        - session_id (string, default = None)
+        Return: string representing user id
+        that is associated with session id
+        '''
+        if session_id is None or type(session_id) is not str:
+            return None
+        user = self.user_id_by_session_id.get(session_id)
+        return user
