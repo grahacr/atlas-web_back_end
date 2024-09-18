@@ -43,7 +43,7 @@ class SessionAuth(Auth):
             return None
         user = self.user_id_by_session_id.get(session_id)
         return user
-    
+
     def current_user(self, request=None) -> TypeVar('User'):
         '''
         current user instance method takes 2 args:
