@@ -43,3 +43,16 @@ class SessionAuth(Auth):
             return None
         user = self.user_id_by_session_id.get(session_id)
         return user
+    
+    def current_user(self, request=None) -> TypeVar('User'):
+        '''
+        current user instance method takes 2 args:
+        - self
+        - request (default = None)
+        Return: User instance
+        '''
+        if request is None:
+            return None
+        cookie = self.session_cookie(request)
+        user = self.user_id_for_session_id(cookie)
+        return User.get(user)
