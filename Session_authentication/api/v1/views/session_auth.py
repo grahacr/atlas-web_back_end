@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 '''
-module for Session Authentication
+module for Session Authentication HTTPS routes
 '''
 from flask import Flask, request, jsonify
 from api.v1.views import app_views
@@ -9,6 +9,11 @@ from os import getenv
 
 @app_views.route('/auth_session/login', methods=['POST'], strict_slashes=False)
 def session_login() -> str:
+    '''
+    POST route for session login
+    session_login function takes no arguments
+    handles routes for the session authentication
+    '''
 
     from api.v1.app import auth
     from api.v1.views.users import User
