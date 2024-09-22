@@ -3,11 +3,8 @@
 module for Session Authentication
 '''
 from api.v1.auth.auth import Auth
-from flask import request
-from typing import TypeVar, Tuple
-import base64
+from typing import TypeVar
 from models.user import User
-from models.base import Base
 import uuid
 
 
@@ -56,3 +53,22 @@ class SessionAuth(Auth):
         cookie = self.session_cookie(request)
         user = self.user_id_for_session_id(cookie)
         return User.get(user)
+
+    def destroy_session(self, request=None) -> bool:
+        '''
+        destroy_session function takes 2 args:
+        - self
+        - request (default = None)
+        Return: Boolean
+        If request exists and is related to a current session cookie
+        and linked to a user ID, destroy session
+        '''
+        if request is None:
+            return False
+        session_id = self.session_cookie(request)
+        if session_id is None:
+            return False
+        if self.user_id_for_session_id(request) is None:
+            return False
+        del self.user_id_by_session_id[session_id]
+        return True

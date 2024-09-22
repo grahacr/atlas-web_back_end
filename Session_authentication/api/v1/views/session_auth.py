@@ -2,7 +2,7 @@
 '''
 module for Session Authentication HTTPS routes
 '''
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, abort
 from api.v1.views import app_views
 from os import getenv
 
@@ -42,3 +42,15 @@ def session_login() -> str:
     response.set_cookie(cookie, session_id)
 
     return response
+
+@app_views.route('/auth_session/logout', methods=['DELETE'], strict_slashes=False)
+def session_logout() -> str:
+    '''
+    logout route for session
+    session_logout function takes no parameters, returns string
+    with status code if destroy session was able to be completed.
+    '''
+    from api.v1.app import auth
+    if not auth.destroy_session(request):
+        abort(404)
+    return jsonify({}), 200
