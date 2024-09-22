@@ -36,7 +36,7 @@ def session_login() -> str:
 
     session_id = auth.create_session(first_user.id)
     json_user = first_user.to_json()
-    
+
     response = jsonify(json_user)
     cookie = getenv('SESSION_NAME')
     response.set_cookie(cookie, session_id)
