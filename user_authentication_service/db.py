@@ -53,9 +53,10 @@ class DB:
         Returns: User from table by filtering
         using kwargs keywords
         '''
-        user = self._session.query(User).filter_by(**kwargs).first()
-        if user is None:
+        try:
+            user = self._session.query(User).filter_by(**kwargs).first()
+        except NoResultFound:
             raise NoResultFound
-        if TypeError:
+        except Exception as e:
             raise InvalidRequestError
         return user
