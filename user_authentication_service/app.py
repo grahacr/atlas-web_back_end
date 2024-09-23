@@ -9,6 +9,10 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def hello():
+    '''
+    simple app route with GET method, no args
+    return jsonified welcome message
+    '''
     return jsonify({'message': 'Bienvenue'})
 
 if __name__ == '__main__':
