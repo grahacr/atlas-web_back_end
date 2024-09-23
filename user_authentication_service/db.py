@@ -54,7 +54,7 @@ class DB:
         using kwargs keywords
         '''
         try:
-            user = self._session.query(User).filter_by(**kwargs).first()
+            user = self._session.query(User).filter_by(**kwargs).one()
         except NoResultFound:
             raise NoResultFound
         except Exception as e:
