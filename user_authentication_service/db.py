@@ -60,7 +60,7 @@ class DB:
         except Exception as e:
             raise InvalidRequestError
         return user
-    
+
     def update_user(self, user_id: int, **kwargs) -> None:
         '''
         update_user method takes at least 3 args:
