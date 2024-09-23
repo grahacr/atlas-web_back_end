@@ -3,9 +3,14 @@
 """
 import bcrypt
 from db import DB
+import uuid
 from user import User
 from sqlalchemy.orm.exc import NoResultFound
 
+
+def _generate_uuid() -> str:
+    new_uuid = uuid.uuid4()
+    return str(new_uuid)
 
 def _hash_password(password: str) -> bytes:
     '''
