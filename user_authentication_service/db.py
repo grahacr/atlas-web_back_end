@@ -60,3 +60,18 @@ class DB:
         except Exception as e:
             raise InvalidRequestError
         return user
+    
+    def update_user(self, user_id: int, **kwargs) -> None:
+        '''
+        update_user method takes at least 3 args:
+        - self
+        - user_id (integer representing user)
+        - **kwargs (any number of args representing attributes)
+        Return: None. Only updating user attributes
+        '''
+        update_user = self.find_user_by(id=user_id)
+        for key, value in kwargs.items():
+            if not hasattr(update_user, key):
+                raise ValueError()
+            setattr(update_user, key, value)
+            self.__session.commit()
