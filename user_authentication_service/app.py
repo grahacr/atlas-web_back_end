@@ -18,6 +18,7 @@ def hello():
     '''
     return jsonify({'message': 'Bienvenue'})
 
+
 @app.route('/users', methods=['POST'])
 def users():
     email = request.form['email']
