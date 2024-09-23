@@ -42,7 +42,6 @@ class DB:
         adds user to the session/database
         '''
         new_user = User(email=email, hashed_password=hashed_password)
-        session = self._session
-        session.add(new_user)
-        session.commit()
+        self.__session.add(new_user)
+        self.__session.commit()
         return new_user
