@@ -9,7 +9,8 @@ from parameterized import parameterized
 
 
 class TestAccessNestedMap(unittest.TestCase):
-
+    '''class for testing nested map
+    utilizing parameterized and assertEqual'''
     @parameterized.expand([
         ({"a": 1}, ("a",), 1),
         ({"a": {"b": 2}}, ("a",), {"b": 2}),
@@ -29,6 +30,10 @@ class TestAccessNestedMap(unittest.TestCase):
 
 
 class TestGetJson(unittest.TestCase):
+    '''
+    Test class for testing getjson utilizing patch
+    and mock so as to not actually make an HTTP get call
+    '''
 
     @parameterized.expand([
         ("http://example.com", {"payload": True}),
