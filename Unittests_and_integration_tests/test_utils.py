@@ -8,7 +8,6 @@ from unittest.mock import patch, Mock
 from parameterized import parameterized
 
 
-
 class TestAccessNestedMap(unittest.TestCase):
 
     @parameterized.expand([
@@ -47,22 +46,27 @@ class TestGetJson(unittest.TestCase):
 
 class TestMemoize(unittest.TestCase):
     '''
+    test case for testing memoize function
     '''
     def test_memoize(self):
         '''
+        test_memoize takes only self as arg
+        includes testclass
         '''
         class TestClass:
-            ''' '''
+            '''nested class with memoized method'''
             def a_method(self):
-                ''' '''
+                '''method testing for memoization'''
                 return 42
+
             @memoize
             def a_property(self):
-                ''' '''
+                '''memoized method'''
                 return self.a_method()
         test_instance = TestClass()
 
-        with patch.object(test_instance, 'a_method', return_value=42) as mock_method:
+        with patch.object(test_instance, 'a_method',
+                          return_value=42) as mock_method:
             result1 = test_instance.a_property
             result2 = test_instance.a_property
 
