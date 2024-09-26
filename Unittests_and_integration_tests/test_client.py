@@ -84,8 +84,17 @@ class TestGithubOrgClient(unittest.TestCase):
         ({"license": {"key": "other_license"}}, "my_license", False),
     ])
     def test_has_license(self, repo, license_key, expected):
+        '''
+        test_has_license tests that repo dict has license key passed
+        takes 4 args:
+        - self
+        - repo (dictionary from parameterized)
+        - license_key (string from parameterized)
+        - expected (expected output using parameterized args)
+        '''
+        result = client.GithubOrgClient.has_license(repo, license_key)
+        self.assertEqual(result, expected)
 
-        
 
 if __name__ == "__main__":
     unittest.main()
