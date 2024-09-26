@@ -64,8 +64,8 @@ class TestGithubOrgClient(unittest.TestCase):
         mock_public_repos_url.return_value = "https://api.github.com/orgs/google/repos"
 
         mock_get_json.return_value = [
-            {"key_name": "Repo1"},
-            {"key_name": "Repo2"},
+            {"name": "Repo1"},
+            {"name": "Repo2"},
         ]
         
         client_instance = client.GithubOrgClient("google")
