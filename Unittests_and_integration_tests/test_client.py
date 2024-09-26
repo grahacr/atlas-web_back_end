@@ -4,7 +4,7 @@ unit tests for client file
 '''
 import client
 import unittest
-from unittest.mock import patch, Mock
+from unittest.mock import patch, Mock, PropertyMock
 from parameterized import parameterized
 
 
@@ -50,7 +50,7 @@ class TestGithubOrgClient(unittest.TestCase):
     
     @patch('client.get_json')
     @patch.object(client.GithubOrgClient, '_public_repos_url',
-                  new_callable=property)
+                  new_callable=PropertyMock)
     def test_public_repos(self, mock_public_repos_url, mock_get_json):
         '''
         method to test public_repos method in client
