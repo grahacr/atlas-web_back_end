@@ -92,8 +92,7 @@ class TestGithubOrgClient(unittest.TestCase):
         - license_key (string from parameterized)
         - expected (expected output using parameterized args)
         '''
-        client = TestGithubOrgClient("google")
-        result = client.has_license(repo, license_key)
+        result = client.GithubOrgClient.has_license(repo, license_key)
         self.assertEqual(result, expected)
 
 
