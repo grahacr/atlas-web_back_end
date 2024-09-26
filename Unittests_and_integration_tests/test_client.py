@@ -35,7 +35,8 @@ class TestGithubOrgClient(unittest.TestCase):
         mock_get_json.assert_called_once()
 
     @patch.object(client.GithubOrgClient, 'org',
-                  return_value={"repos_url": "https://api.github.com/orgs/google/repos"})
+                  return_value=({"repos_url": 
+                                 "https://api.github.com/orgs/google/repos"}))
     def test_public_repos_url(self, mock_org):
         '''
         unit test method for _public_repos_url property of client
