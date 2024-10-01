@@ -1,0 +1,1 @@
+Learning Redis for basic operations and as a simple cache.
