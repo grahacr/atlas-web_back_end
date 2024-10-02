@@ -1,4 +1,4 @@
--- SQL script ranking bands by country of origin based on fans!
+-- SQL script ranking countries of origins of bands based on number of fans!
 
 DROP TABLE IF EXISTS ranked_bands;
 
