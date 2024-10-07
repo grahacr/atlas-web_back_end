@@ -1,26 +1,23 @@
 -- create stored procedure that adds new correction for student
 
 DELIMITER //
-CREATE procedure AddBonus
-    @user_id INT,
-    @project_name VARCHAR(255),
-    @score INT
-AS
+CREATE procedure AddBonus(
+    IN user_id INT,
+    IN project_name VARCHAR(255),
+    IN score INT
+)
 BEGIN
     DECLARE project_id INT;
     IF NOT EXISTS (
-        SELECT id FROM projects WHERE name = @project_name
-    )
-    BEGIN
-        INSERT INTO projects (name)
-        VALUES (@project_name)
-        SET @project_id = SCOPE_IDENTITY();
-    END
+        SELECT id FROM projects WHERE name = project_name
+    ) THEN
+        INSERT INTO projects (name) VALUES (project_name);
+        SET project_id = LAST_INSERT_ID();
     ELSE
-    BEGIN
-        SELECT @project_id = id FROM projects WHERE name = @project_name;
-    END
+        SELECT id INTO project_id FROM projects WHERE name = project_name;
+    END IF;
+
     INSERT INTO corrections (user_id, project_id, score)
-    VALUES (@user_id, @project_id, @score);
-END
-DELIMITER;
+    VALUES (user_id, project_id, score);
+END //
+DELIMITER ;
