@@ -1,0 +1,4 @@
+//List all databases
+
+const databases = db.adminCommand('listDatabases');
+console.log(databases.databases);
