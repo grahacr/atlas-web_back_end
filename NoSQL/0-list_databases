@@ -1,4 +1,3 @@
-//List all databases
+//List all databases using MongoDB
 
-const databases = db.adminCommand('listDatabases');
-console.log(databases.databases);
+show dbs
