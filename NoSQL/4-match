@@ -1,0 +1,3 @@
+// mongosh script to list all documents with certain name in certain collection
+
+db.school.find({ name: "Holberton School" })
