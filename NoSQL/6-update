@@ -1,0 +1,6 @@
+// mongosh script to add an attribute to a document in a collection
+
+db.school.updateMany(
+    { name: "Holberton School" },
+    { $set: {address: "972 Mission street"}}
+)
