@@ -26,15 +26,16 @@ function countStudents(filePath) {
         // get total students object using reduce on the values of students array
         const totalStudents = Object.values(students).reduce(
             (sum, entry) => sum + entry.count, 0);
-
-        console.log(`Number of students: ${totalStudents}`);
+        let result = `Number of students: ${totalStudents}\n`;
 
         // iterate through each field and output student info in each field 
         for (const field in students) {
-                console.log(`Number of students in ${field}: ${students[field].count}. List: ${students[field].names.join(', ')}`);
+                result += (`Number of students in ${field}: ${students[field].count}. List: ${students[field].names.join(', ')}`);
             }
+            console.log(result);
+            return result;
         })
-        .catch(error => {
+        .catch(() => {
             throw new Error('Cannot load the database');
         });
 }
