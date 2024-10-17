@@ -3,24 +3,21 @@ const readDatabase = require('../utils');
 
 class StudentsController {
     static async getAllStudents(req, res) {
-
         const dbfile = process.argv[2];
 
         try {
             const students = await readDatabase(dbfile);
-            let response = 'This is the list of our students:\n';
+            let result = 'This is the list of our students:\n';
 
-            Object.keys(students).sort().forEach((field) => {
-                response += `Number of students in ${field}: ${students[field].length}. List: ${students[field].join(', ')}\n`;
+            const sortedFields = Object.keys(students).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+            sortedFields.forEach(field => {
+                result += `Number of students in ${field}: ${students[field].count}. List: ${students[field].names.join(', ')}\n`;
             });
-
-            res.status(200).send(response);
+            res.stat(200).send(result);
         } catch (error) {
             res.status(500).send('Cannot load database');
         }
     }
-
-    static async getAllStudentsByMajor(res, req) {
-        
-    }
 }
+
+module.exports = StudentsController;

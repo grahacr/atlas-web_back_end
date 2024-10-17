@@ -14,9 +14,10 @@ async function readDatabase(filePath) {
 
             if (field) {
                 if (!students[field]) {
-                    students[field] = [];
+                    students[field] = { count: 0, names: [] };
                 }
-                students[field].push(student);
+                students[field].count += 1;
+                students[field].names.push(student);
             }
         });
         return students;
