@@ -1,15 +1,13 @@
 {
   "name": "unittests_in_js",
   "version": "1.0.0",
-  "description": "Learning to do unittests in javascript. \r Learning Objectives:\r - How to use Mocha to write a test suite\r - How to use different assertion libraries (Node or Chai)\r - How to present long test suites\r - When and how to use spies\r - When and how to use stubs\r - What are hooks and when to use them\r - Unit testing with Async functions\r - How to write integration tests with a small node server",
-  "main": "index.js",
+  "description": "learning unittests in js with mocha, chai, and sinon",
+  "main": "0-calcul_chai",
   "scripts": {
     "test": "mocha"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
+    "chai": "^4.3.6",
     "mocha": "^10.7.3"
   }
 }
