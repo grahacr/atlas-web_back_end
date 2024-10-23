@@ -6,11 +6,10 @@
   "scripts": {
     "test": "mocha"
   },
-  "dependencies": {
-    "chai": "^4.3.6",
-    "mocha": "^10.7.3"
-  },
   "devDependencies": {
-    "sinon": "^19.0.2"
+    "chai": "^5.1.2",
+    "mocha": "^10.7.3",
+    "sinon": "^19.0.2",
+    "supertest": "^7.0.0"
   }
 }
